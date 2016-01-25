@@ -147,7 +147,8 @@ module.exports = function (grunt){
         },
         excludes       : false,
         mochaOptions   : false,
-        istanbulOptions: false
+        istanbulOptions: false,
+        verbose: false
       }),
       filesDir = grunt.file.isDir(this.filesSrc[0]) ? this.filesSrc[0] : path.dirname(this.filesSrc[0]),
       coverageFolder = path.join(process.cwd(), options.coverageFolder),
@@ -253,6 +254,10 @@ module.exports = function (grunt){
 
     if (options.recursive) {
       args.push('--recursive');
+    }
+
+    if (options.verbose) {
+      args.push('--verbose');
     }
 
     var masked = this.filesSrc;
