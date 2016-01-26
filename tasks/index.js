@@ -197,6 +197,10 @@ module.exports = function (grunt){
       });
     }
 
+    if (options.verbose) {
+      args.push('--verbose');
+    }
+
     args.push(mochaPath);                 // node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha
     args.push('--');                      // node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --
 
@@ -254,10 +258,6 @@ module.exports = function (grunt){
 
     if (options.recursive) {
       args.push('--recursive');
-    }
-
-    if (options.verbose) {
-      args.push('--verbose');
     }
 
     var masked = this.filesSrc;
