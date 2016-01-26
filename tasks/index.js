@@ -288,7 +288,7 @@ module.exports = function (grunt){
           stdio: options.quiet ? 'ignore' : 'inherit'
         }
       }, function (err, result){
-        console.log('finished command', err, result);
+        console.log('finished command', err.message, result.toString());
 
         if (err) {
           grunt.log.error(result);
